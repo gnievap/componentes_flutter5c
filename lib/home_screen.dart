@@ -10,37 +10,37 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Componentes de flutter'),
       ),
       body: ListView(
-        children: const [
+        children: [
           ListTile(
-            leading: Icon(Icons.mode_of_travel),
+            leading: const Icon(Icons.mode_of_travel),
             title: Text(
               'KC campeones del SB 58',
-              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-            subtitle: Text(
+            subtitle: const Text(
               '11-02-2024 - Las Vegas',
             ),
-            trailing: Icon(Icons.arrow_circle_right),
+            trailing: const Icon(Icons.arrow_circle_right),
           ),
-          Divider(),
+          const Divider(),
           ListTile(
-            leading: Icon(Icons.flag),
+            leading: const Icon(Icons.flag),
             title: Text(
               'KC campeones del SB 57',
-              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-            subtitle: Text('10-02-2023 - Arizona'),
-            trailing: Icon(Icons.arrow_circle_right),
+            subtitle: const Text('10-02-2023 - Arizona'),
+            trailing: const Icon(Icons.arrow_circle_right),
           ),
-          Divider(),
+          const Divider(),
           ListTile(
-            leading: Icon(Icons.flight),
+            leading: const Icon(Icons.flight),
             title: Text(
               'KC campeones del SB 54',
-              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-            subtitle: Text('02-02-2020 - Miami'),
-            trailing: Icon(Icons.arrow_circle_right),
+            subtitle: const Text('02-02-2020 - Miami'),
+            trailing: const Icon(Icons.arrow_circle_right),
           ),
         ],
       ),
