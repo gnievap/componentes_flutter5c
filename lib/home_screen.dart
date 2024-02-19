@@ -12,34 +12,34 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            leading: const Icon(Icons.mode_of_travel),
+            leading: const Icon(Icons.input_rounded),
             title: Text(
-              'KC campeones del SB 58',
+              'Entradas',
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             subtitle: const Text(
-              '11-02-2024 - Las Vegas',
+              'Diferentes widgets para entradas de flutter',
             ),
             trailing: const Icon(Icons.arrow_circle_right),
           ),
           const Divider(),
           ListTile(
-            leading: const Icon(Icons.flag),
+            leading: const Icon(Icons.list_alt_rounded),
             title: Text(
-              'KC campeones del SB 57',
+              'ListView.builder',
               style: Theme.of(context).textTheme.headlineLarge,
             ),
-            subtitle: const Text('10-02-2023 - Arizona'),
+            subtitle: const Text('Scroll infinito'),
             trailing: const Icon(Icons.arrow_circle_right),
           ),
           const Divider(),
           ListTile(
-            leading: const Icon(Icons.flight),
+            leading: const Icon(Icons.notification_add),
             title: Text(
-              'KC campeones del SB 54',
+              'Notificaciones',
               style: Theme.of(context).textTheme.headlineLarge,
             ),
-            subtitle: const Text('02-02-2020 - Miami'),
+            subtitle: const Text('Creación de notificaciones'),
             trailing: const Icon(Icons.arrow_circle_right),
           ),
         ],
