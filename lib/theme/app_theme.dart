@@ -5,6 +5,7 @@ class AppTheme {
   // Declaraciones de color
   static const mainColor = Color.fromARGB(255, 4, 4, 61);
   static const accentColor = Color.fromARGB(255, 33, 41, 112);
+  static const accentColor2 = Color.fromARGB(255, 67, 81, 207);
   static const backColor = Color.fromARGB(255, 222, 231, 244);
 
   // Declaraciones del tema claro
@@ -45,6 +46,13 @@ class AppTheme {
         decorationStyle: TextDecorationStyle.double,
         decorationThickness: 1.5,
         fontStyle: FontStyle.italic,
+      ),
+      headlineMedium: GoogleFonts.acme(
+        color: mainColor,
+        fontSize: 21.5,
+        fontWeight: FontWeight.w500,
+        decorationStyle: TextDecorationStyle.double,
+        decorationThickness: 1.5,
       ),
       //Textos muy pequeños
       bodySmall: GoogleFonts.montserrat(
