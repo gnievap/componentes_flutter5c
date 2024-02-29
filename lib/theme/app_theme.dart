@@ -61,6 +61,13 @@ class AppTheme {
         fontWeight: FontWeight.w500,
         fontStyle: FontStyle.italic,
       ),
+
+      bodyMedium: GoogleFonts.montserrat(
+        color: backColor,
+        fontSize: 18.5,
+        fontWeight: FontWeight.w500,
+        fontStyle: FontStyle.italic,
+      ),
     ),
   );
 }
