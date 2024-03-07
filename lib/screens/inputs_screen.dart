@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_5c24/screens/home_screen.dart';
+import 'package:practica3_5c24/screens/images_screen.dart';
+import 'package:practica3_5c24/screens/infinite_list_screen.dart';
+import 'package:practica3_5c24/screens/notifications_screen.dart';
 import 'package:practica3_5c24/theme/app_theme.dart';
 
 class InputsScreen extends StatefulWidget {
@@ -16,6 +20,34 @@ class _InputsScreenState extends State<InputsScreen> {
   double valueSlider = 0.0;
   int selectedIndex = 0;
   int selectedRadioOption = 0; // Para los RadioButton
+
+  openScreen(int index) {
+    setState(() {
+      MaterialPageRoute ruta =
+          MaterialPageRoute(builder: (context) => const HomeScreen());
+
+      switch (index) {
+        case 0:
+          ruta = MaterialPageRoute(builder: (context) => const HomeScreen());
+          break;
+        case 1:
+          ruta = MaterialPageRoute(
+              builder: (context) => const InfiniteListScreen());
+          break;
+        case 2:
+          ruta = MaterialPageRoute(
+              builder: (context) => const NotificationsScreen());
+          break;
+        case 3:
+          ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
+          break;
+      }
+      selectedIndex = index;
+      //print('selectedIndex = $selectedIndex');
+      Navigator.push(context, ruta);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +78,8 @@ class _InputsScreenState extends State<InputsScreen> {
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIndex,
           backgroundColor: AppTheme.mainColor,
+          unselectedItemColor: AppTheme.backColor,
+          onTap: (index) => openScreen(index),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(
@@ -59,7 +93,21 @@ class _InputsScreenState extends State<InputsScreen> {
                 Icons.list,
                 color: AppTheme.backColor,
               ),
-              label: "Datos",
+              label: "Lista",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.notification_add,
+                color: AppTheme.backColor,
+              ),
+              label: "Notificaciones",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.image,
+                color: AppTheme.backColor,
+              ),
+              label: "Imágenes",
             ),
             BottomNavigationBarItem(
               icon: Icon(
