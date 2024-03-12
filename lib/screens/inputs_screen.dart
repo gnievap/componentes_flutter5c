@@ -21,7 +21,7 @@ class _InputsScreenState extends State<InputsScreen> {
   int selectedIndex = 0;
   int selectedRadioOption = 0; // Para los RadioButton
 
-  openScreen(int index) {
+  openScreen(int index, BuildContext context) {
     setState(() {
       MaterialPageRoute ruta =
           MaterialPageRoute(builder: (context) => const HomeScreen());
@@ -79,7 +79,7 @@ class _InputsScreenState extends State<InputsScreen> {
           currentIndex: selectedIndex,
           backgroundColor: AppTheme.mainColor,
           unselectedItemColor: AppTheme.backColor,
-          onTap: (index) => openScreen(index),
+          onTap: (index) => openScreen(index, context),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(
@@ -148,7 +148,7 @@ class _InputsScreenState extends State<InputsScreen> {
           onChanged: (value) {
             setState(() {
               valueSwitch = value;
-              print('Estado del switch: $valueSwitch');
+              //print('Estado del switch: $valueSwitch');
             });
           },
         ),
@@ -175,7 +175,7 @@ class _InputsScreenState extends State<InputsScreen> {
             onChanged: (value) {
               setState(() {
                 valueSlider = value;
-                print('Valor del slider: $valueSlider');
+                //print('Valor del slider: $valueSlider');
               });
             }),
       ],
@@ -202,7 +202,7 @@ class _InputsScreenState extends State<InputsScreen> {
               onChanged: (value) {
                 setState(() {
                   selectedRadioOption = value!;
-                  print('Opción seleccionada: $selectedRadioOption');
+                  //print('Opción seleccionada: $selectedRadioOption');
                 });
               },
             ),
@@ -221,7 +221,7 @@ class _InputsScreenState extends State<InputsScreen> {
               onChanged: (value) {
                 setState(() {
                   selectedRadioOption = value!;
-                  print('Opción seleccionada: $selectedRadioOption');
+                  //print('Opción seleccionada: $selectedRadioOption');
                 });
               },
             ),
@@ -244,7 +244,7 @@ class _InputsScreenState extends State<InputsScreen> {
           onChanged: (value) {
             setState(() {
               isChecked1 = value!;
-              print('Valor de Navegador: $isChecked1');
+              //print('Valor de Navegador: $isChecked1');
             });
           },
         ),
@@ -257,7 +257,7 @@ class _InputsScreenState extends State<InputsScreen> {
           onChanged: (value) {
             setState(() {
               isChecked2 = value!;
-              print('Valor de Emulador: $isChecked2');
+              //print('Valor de Emulador: $isChecked2');
             });
           },
         ),
@@ -270,7 +270,7 @@ class _InputsScreenState extends State<InputsScreen> {
           onChanged: (value) {
             setState(() {
               isChecked3 = value!;
-              print('Valor de Smartphone: $isChecked3');
+              //print('Valor de Smartphone: $isChecked3');
             });
           },
         ),
