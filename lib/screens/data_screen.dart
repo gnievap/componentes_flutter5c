@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_5c24/models/data.dart';
 import 'package:practica3_5c24/screens/home_screen.dart';
 import 'package:practica3_5c24/screens/images_screen.dart';
 import 'package:practica3_5c24/screens/infinite_list_screen.dart';
@@ -6,7 +7,8 @@ import 'package:practica3_5c24/screens/notifications_screen.dart';
 import 'package:practica3_5c24/theme/app_theme.dart';
 
 class DataScreen extends StatefulWidget {
-  const DataScreen({super.key});
+  final Data datos;
+  const DataScreen({super.key, required this.datos});
 
   @override
   State<DataScreen> createState() => _DataScreenState();
@@ -19,6 +21,21 @@ class _DataScreenState extends State<DataScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Notificaciones'),
+      ),
+      body: ListView(
+        children: [
+          ListTile(
+            title: Text(
+              'Nombre',
+              style: AppTheme.lightTheme.textTheme.headlineMedium,
+            ),
+            subtitle: Text(
+              widget.datos.nombre!,
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+          ),
+          const Divider(),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIndex,

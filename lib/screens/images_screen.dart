@@ -115,7 +115,7 @@ class _ImagesScreenState extends State<ImagesScreen> {
               image: AssetImage('assets/imgs/huskies.jpg'),
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Text(
                 'Tres huskies sonrientes',
                 style: AppTheme.lightTheme.textTheme.bodySmall,

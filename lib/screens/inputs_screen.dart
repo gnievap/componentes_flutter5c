@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_5c24/models/data.dart';
+import 'package:practica3_5c24/screens/data_screen.dart';
 import 'package:practica3_5c24/screens/home_screen.dart';
 import 'package:practica3_5c24/screens/images_screen.dart';
 import 'package:practica3_5c24/screens/infinite_list_screen.dart';
@@ -13,13 +15,14 @@ class InputsScreen extends StatefulWidget {
 }
 
 class _InputsScreenState extends State<InputsScreen> {
+  String? nombre;
   bool valueSwitch = false;
   bool isChecked1 = false;
   bool isChecked2 = false;
   bool isChecked3 = false;
   double valueSlider = 0.0;
   int selectedIndex = 0;
-  int selectedRadioOption = 0; // Para los RadioButton
+  String? selectedRadioOption; // Para los RadioButton
 
   openScreen(int index, BuildContext context) {
     setState(() {
@@ -66,10 +69,23 @@ class _InputsScreenState extends State<InputsScreen> {
               style: AppTheme.lightTheme.textTheme.headlineLarge,
             ),
             entradasCheck(),
-            const ElevatedButton(
-              onPressed: null,
+            ElevatedButton(
+              onPressed: () {
+                Data data = Data(
+                    nomb: nombre!,
+                    flutter: valueSwitch,
+                    calif: valueSlider.round(),
+                    dev: selectedRadioOption!,
+                    nav: isChecked1,
+                    emul: isChecked2,
+                    phone: isChecked3);
+                MaterialPageRoute route = MaterialPageRoute(
+                    builder: (context) => DataScreen(datos: data));
+                Navigator.push(context, route);
+              },
               child: Text(
                 'Guardar',
+                style: AppTheme.lightTheme.textTheme.headlineMedium,
               ),
             ),
           ],
@@ -129,6 +145,7 @@ class _InputsScreenState extends State<InputsScreen> {
         labelText: 'Escribe tu nombre:',
         labelStyle: AppTheme.lightTheme.textTheme.headlineLarge,
       ),
+      onChanged: (text) => nombre = text,
     );
   }
 
@@ -197,7 +214,7 @@ class _InputsScreenState extends State<InputsScreen> {
           leading: Transform.scale(
             scale: 1.5,
             child: Radio(
-              value: 1,
+              value: 'Kotlin',
               groupValue: selectedRadioOption,
               onChanged: (value) {
                 setState(() {
@@ -216,7 +233,7 @@ class _InputsScreenState extends State<InputsScreen> {
           leading: Transform.scale(
             scale: 1.5,
             child: Radio(
-              value: 2,
+              value: 'Flutter',
               groupValue: selectedRadioOption,
               onChanged: (value) {
                 setState(() {
