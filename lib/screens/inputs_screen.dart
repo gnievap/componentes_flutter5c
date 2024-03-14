@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:practica3_5c24/models/data.dart';
 import 'package:practica3_5c24/screens/data_screen.dart';
 import 'package:practica3_5c24/screens/home_screen.dart';
@@ -44,6 +45,8 @@ class _InputsScreenState extends State<InputsScreen> {
         case 3:
           ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
           break;
+        case 4:
+          SystemChannels.platform.invokeMethod('SystemNavigator.pop');
       }
       selectedIndex = index;
       //print('selectedIndex = $selectedIndex');

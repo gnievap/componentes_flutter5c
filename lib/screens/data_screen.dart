@@ -16,8 +16,27 @@ class DataScreen extends StatefulWidget {
 
 class _DataScreenState extends State<DataScreen> {
   int selectedIndex = 0;
+  String? gusto;
+  //String? tools;
+
   @override
   Widget build(BuildContext context) {
+    if (widget.datos.gustoFlutter == true) {
+      gusto = 'Sí';
+    } else {
+      gusto = 'No';
+    }
+    // if (widget.datos.web == true) {
+    //   tools = 'Navegador ';
+    // }
+    // if (widget.datos.emulador == true) {
+    //   String em = ' Emulador ';
+    //   tools = tools! + em;
+    // }
+    // if (widget.datos.smartphone == true) {
+    //   String phone = ' Smartphone ';
+    //   tools = tools! + phone;
+    // }
     return Scaffold(
       appBar: AppBar(
         title: const Text('Notificaciones'),
@@ -35,6 +54,60 @@ class _DataScreenState extends State<DataScreen> {
             ),
           ),
           const Divider(),
+          ListTile(
+            title: Text(
+              '¿A ${widget.datos.nombre} le gusta Flutter?: ',
+              style: AppTheme.lightTheme.textTheme.headlineMedium,
+            ),
+            subtitle: Text(
+              gusto!,
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            title: Text(
+              'La calificación que ${widget.datos.nombre} le da a Flutter es: ',
+              style: AppTheme.lightTheme.textTheme.headlineMedium,
+            ),
+            subtitle: Text(
+              widget.datos.califFlutter.toString(),
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            title: Text(
+              '${widget.datos.nombre} para desarrollo móvil prefiere: ',
+              style: AppTheme.lightTheme.textTheme.headlineMedium,
+            ),
+            subtitle: Text(
+              widget.datos.mobilDev!,
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            title: Text(
+              'La calificación que ${widget.datos.nombre} le da a Flutter es: ',
+              style: AppTheme.lightTheme.textTheme.headlineMedium,
+            ),
+            subtitle: Text(
+              widget.datos.califFlutter.toString(),
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+          ),
+          const Divider(),
+          // ListTile(
+          //   title: Text(
+          //     '${widget.datos.nombre} usa para correr sus apps: ',
+          //     style: AppTheme.lightTheme.textTheme.headlineMedium,
+          //   ),
+          //   subtitle: Text(
+          //     tools!,
+          //     style: AppTheme.lightTheme.textTheme.headlineLarge,
+          //   ),
+          // ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
