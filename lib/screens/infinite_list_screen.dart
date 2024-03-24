@@ -3,6 +3,7 @@ import 'package:practica3_5c24/screens/home_screen.dart';
 import 'package:practica3_5c24/screens/images_screen.dart';
 import 'package:practica3_5c24/screens/inputs_screen.dart';
 import 'package:practica3_5c24/screens/notifications_screen.dart';
+import 'package:practica3_5c24/services/firebase_services.dart';
 import 'package:practica3_5c24/theme/app_theme.dart';
 
 class InfiniteListScreen extends StatefulWidget {
@@ -20,6 +21,27 @@ class _InfiniteListScreenState extends State<InfiniteListScreen> {
       appBar: AppBar(
         title: const Text('Lista'),
       ),
+      body: FutureBuilder(
+          future: getMascotas(),
+          builder: ((context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data?.length,
+                itemBuilder: (context, index) {
+                  return Center(
+                    child: Text(
+                      snapshot.data?[index]['nombre'],
+                      style: AppTheme.lightTheme.textTheme.headlineMedium,
+                    ),
+                  );
+                },
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          })),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIndex,
           backgroundColor: AppTheme.mainColor,
